@@ -1,19 +1,15 @@
-# Distributed with a free-will license.
-# Use it any way you want, profit or free, provided it fits in the licenses of its associated works.
-# BMP280
-# This code is designed to work with the BMP280_I2CS I2C Mini Module available from ControlEverything.com.
-# https://www.controleverything.com/content/Barometer?sku=BMP280_I2CSs#tabs-0-product_tabset-2
-
-
 import smbus
 import time
 
 # Get I2C bus
 bus = smbus.SMBus(1)
 
-# BMP280 address, 0x76(118)
+# I2C Address
+address = 0x77
+
+# BMP280 address, address(118)
 # Read data back from 0x88(136), 24 bytes
-b1 = bus.read_i2c_block_data(0x76, 0x88, 24)
+b1 = bus.read_i2c_block_data(address, 0x88, 24)
 
 # Convert the data
 # Temp coefficents
@@ -52,23 +48,23 @@ dig_P9 = b1[23] * 256 + b1[22]
 if dig_P9 > 32767 :
     dig_P9 -= 65536
 
-# BMP280 address, 0x76(118)
+# BMP280 address, address(118)
 # Select Control measurement register, 0xF4(244)
 #		0x27(39)	Pressure and Temperature Oversampling rate = 1
 #					Normal mode
-bus.write_byte_data(0x76, 0xF4, 0x27)
-# BMP280 address, 0x76(118)
+bus.write_byte_data(address, 0xF4, 0x27)
+# BMP280 address, address(118)
 # Select Configuration register, 0xF5(245)
 #		0xA0(00)	Stand_by time = 1000 ms
-bus.write_byte_data(0x76, 0xF5, 0xA0)
+bus.write_byte_data(address, 0xF5, 0xA0)
 
 time.sleep(0.5)
 
-# BMP280 address, 0x76(118)
+# BMP280 address, address(118)
 # Read data back from 0xF7(247), 8 bytes
 # Pressure MSB, Pressure LSB, Pressure xLSB, Temperature MSB, Temperature LSB
 # Temperature xLSB, Humidity MSB, Humidity LSB
-data = bus.read_i2c_block_data(0x76, 0xF7, 8)
+data = bus.read_i2c_block_data(address, 0xF7, 8)
 
 # Convert pressure and temperature data to 19-bits
 adc_p = ((data[0] * 65536) + (data[1] * 256) + (data[2] & 0xF0)) / 16
@@ -95,6 +91,6 @@ var2 = p * (dig_P8) / 32768.0
 pressure = (p + (var1 + var2 + (dig_P7)) / 16.0) / 100
 
 # Output data to screen
-print "Temperature in Celsius : %.2f C" %cTemp
-print "Temperature in Fahrenheit : %.2f F" %fTemp
-print "Pressure : %.2f hPa " %pressure
+print "Temperature in Celsius : %.2f C" % cTemp
+print "Temperature in Fahrenheit : %.2f F" % fTemp
+print "Pressure : %.2f hPa " % pressure
