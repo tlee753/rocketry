@@ -34,5 +34,8 @@ rfm9x.tx_power = 23
 # This is a limitation of the radio packet size, so if you need to send larger
 # amounts of data you will need to break it into smaller send calls.  Each send
 # call will wait for the previous one to finish before continuing.
-rfm9x.send('Hello world!\r\n')
+
+print("hit me baby")
+
+rfm9x.send(b'\x01\xcf\x00\x00\x00\x00\x00\x00\x00\x00')
 print('Sent hello world message!')
