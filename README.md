@@ -1,6 +1,7 @@
 # rocketry
-JSC Intern Rocket Launch Code
+Rocket Launch Code for Raspberry Pi Zero W
 
+### Setup
 1) install pip3
 - `sudo apt install python3-pip`
 
@@ -14,8 +15,8 @@ pip3 install adafruit-circuitpython-rfm9x
 
 3) enable SPI/I2C
 - `sudo raspi-config`
-interface options
+- `interface options`
 
 4) Connect Hardware
 
-5) Run python files
+5) Run python files at launch
