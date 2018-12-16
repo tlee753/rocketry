@@ -3,7 +3,6 @@ import busio
 import digitalio
 import adafruit_rfm9x
 
-
 RADIO_FREQ_MHZ   = 915.0
 groundStation = False;
 
