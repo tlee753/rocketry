@@ -4,7 +4,7 @@ import digitalio
 import adafruit_rfm9x
 
 RADIO_FREQ_MHZ   = 915.0
-groundStation = False;
+groundStation = True;
 
 CS    = digitalio.DigitalInOut(board.D5)
 RESET = digitalio.DigitalInOut(board.D6)
@@ -14,7 +14,7 @@ rfm9x = adafruit_rfm9x.RFM9x(spi, CS, RESET, RADIO_FREQ_MHZ)
 if (groundStation):
     print("Starting Ping Test as Ground Station")
     while (True):
-        inputKey = input("Press a key to send a packet")
+        inputKey = input("Press a key to send a packet ")
         if (inputKey == 'q'):
             break
         else:
@@ -22,7 +22,7 @@ if (groundStation):
             print("Sent Ground Station Ping!")
             print()
 
-            packet = rfm9x.receive(timeout_s=5.0)
+            packet = rfm9x.receive(timeout=5.0)
 
             if packet is None:
                 pass
