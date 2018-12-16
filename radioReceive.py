@@ -33,3 +33,4 @@ while True:
 
         rssi = rfm9x.rssi
         print('Received signal strength: {0} dB'.format(rssi))
+        print()
