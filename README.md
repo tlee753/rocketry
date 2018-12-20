@@ -15,8 +15,10 @@ pip3 install adafruit-circuitpython-rfm9x
 
 3) enable SPI/I2C
 - `sudo raspi-config`
-- `interface options`
+  - `interface options`
+- test with `python3 interfaceTest.py`
 
 4) Connect Hardware
+- `python3 pingTest.py`
 
 5) Run python files at launch
