@@ -9,8 +9,8 @@ import adafruit_rfm9x
 RADIO_FREQ_MHZ   = 915.0
 
 # Define pins connected to the chip, use these if wiring up the breakout according to the guide:
-CS    = digitalio.DigitalInOut(board.D5)
-RESET = digitalio.DigitalInOut(board.D6)
+CS    = digitalio.DigitalInOut(board.D6)
+RESET = digitalio.DigitalInOut(board.D5)
 
 # Initialize SPI bus.
 spi = busio.SPI(board.SCK, MOSI=board.MOSI, MISO=board.MISO)
