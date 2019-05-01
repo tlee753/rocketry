@@ -4,10 +4,10 @@ import digitalio
 import adafruit_rfm9x
 
 RADIO_FREQ_MHZ   = 915.0
-groundStation = True;
+groundStation = False;
 
-CS    = digitalio.DigitalInOut(board.D5)
-RESET = digitalio.DigitalInOut(board.D6)
+CS    = digitalio.DigitalInOut(board.D6)
+RESET = digitalio.DigitalInOut(board.D5)
 spi = busio.SPI(board.SCK, MOSI=board.MOSI, MISO=board.MISO)
 rfm9x = adafruit_rfm9x.RFM9x(spi, CS, RESET, RADIO_FREQ_MHZ)
 
