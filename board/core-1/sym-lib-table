@@ -1,0 +1,7 @@
+(sym_lib_table
+  (lib (name motion)(type Legacy)(uri /home/tyler/Github/rocketry/board/core-1/motion.lib)(options "")(descr ""))
+  (lib (name rocket-motion)(type Legacy)(uri /home/tyler/Github/rocketry/board/core-1/rocket-motion.lib)(options "")(descr ""))
+  (lib (name rocket-temp)(type Legacy)(uri /home/tyler/Github/rocketry/board/core-1/rocket-temp.lib)(options "")(descr ""))
+  (lib (name rocket-audio)(type Legacy)(uri /home/tyler/Github/rocketry/board/core-1/rocket-audio.lib)(options "")(descr ""))
+  (lib (name rocket-radio)(type Legacy)(uri /home/tyler/Github/rocketry/board/core-1/rocket-radio.lib)(options "")(descr ""))
+)
